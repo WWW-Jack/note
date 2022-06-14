@@ -1,3 +1,23 @@
+## 安裝docker
+```
+yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+yum install -y yum-utils
+
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
 ## docker常用指令
 ```
 docker run 鏡像name    # 運行容器
@@ -18,10 +38,7 @@ docker rm -f 容器id    # 刪除容器
 docker rm -f $(docker ps -aq)    # 刪除全部容器
 
 docker start/restart/stop/kill 容器id    # 啟動和停止容器
-```
 
-## docker cp指令
-```
 [root@localhost jack]# docker run -it centos /bin/bash
 [root@a4c65ed195df /]# pwd
 /
@@ -43,6 +60,3 @@ jack
 jack  test1.txt
 [root@localhost home]# 
 ```
-
-## dockerfile
-
